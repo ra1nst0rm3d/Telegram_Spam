@@ -59,11 +59,8 @@ def build_data():
 
 def login_as_user(api_id, api_hash, count, session='0'):
     # Функция для входа под видом пользователя (НЕ бота) в Telegram
-    host = 'russia-dd.proxy.digitalresistance.dog'
-    port = 443
-    sec = 'ddd41d8cd98f00b204e9800998ecf8427e'
     if session != '0':
-        client = TelegramClient(session, spam_api_id[count], spam_api_hash[count], connection=connection.ConnectionTcpMTProxyRandomizedIntermediate, proxy=(host, port, sec))
+        client = TelegramClient(session, spam_api_id[count], spam_api_hash[count])
         return client
     client = TelegramClient(randomString(3), spam_api_id[count], spam_api_hash[count], connection=connection.ConnectionTcpMTProxyRandomizedIntermediate, proxy=(host, port, sec))
     return client
